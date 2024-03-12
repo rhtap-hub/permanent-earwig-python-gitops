@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: permanent-earwig-python-gitops
+  description: This is GitOps manifest for permanent-earwig-python   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: permanent-earwig-python
+    janus-idp.io/tekton: permanent-earwig-python 
+    backstage.io/kubernetes-id: permanent-earwig-python 
+    backstage.io/techdocs-ref: dir:. 
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:permanent-earwig-python
